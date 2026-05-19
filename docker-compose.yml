@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: fish_pokedex_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+      POSTGRES_DB: fish_pokedex
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - fish_pokedex_network
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: fish_pokedex_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "8080:80"
+    networks:
+      - fish_pokedex_network
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+
+networks:
+  fish_pokedex_network:
+    driver: bridge
