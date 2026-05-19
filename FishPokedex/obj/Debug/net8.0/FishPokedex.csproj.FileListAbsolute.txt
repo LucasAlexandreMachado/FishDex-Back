@@ -206,3 +206,4 @@
 /home/lucas/Documents/UFSC/UFSC-PROGRAMA/DesenvolvimentoWeb/TrabalhoFinal/BackEnd/FishPokedex/obj/Debug/net8.0/FishPokedex.pdb
 /home/lucas/Documents/UFSC/UFSC-PROGRAMA/DesenvolvimentoWeb/TrabalhoFinal/BackEnd/FishPokedex/obj/Debug/net8.0/FishPokedex.genruntimeconfig.cache
 /home/lucas/Documents/UFSC/UFSC-PROGRAMA/DesenvolvimentoWeb/TrabalhoFinal/BackEnd/FishPokedex/obj/Debug/net8.0/ref/FishPokedex.dll
+/home/lucas/Documents/UFSC/UFSC-PROGRAMA/DesenvolvimentoWeb/TrabalhoFinal/BackEnd/FishPokedex/obj/Debug/net8.0/FishPokedex.sourcelink.json
