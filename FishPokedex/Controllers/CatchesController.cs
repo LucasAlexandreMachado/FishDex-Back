@@ -15,6 +15,7 @@ public class CatchesController(AppDbContext context) : ControllerBase
     public async Task<ActionResult<IEnumerable<Catch>>> GetCatches()
     {
         return await _context.Catches
+            .Include(c => c.Location)
             .Include(c => c.Species)
             .Include(c => c.CatchDetail)
             .ToListAsync();
@@ -24,6 +25,7 @@ public class CatchesController(AppDbContext context) : ControllerBase
     public async Task<ActionResult<Catch>> GetCatch(int id)
     {
         var catchEntity = await _context.Catches
+            .Include(c => c.Location)
             .Include(c => c.Species)
             .Include(c => c.CatchDetail)
             .FirstOrDefaultAsync(c => c.Id == id);

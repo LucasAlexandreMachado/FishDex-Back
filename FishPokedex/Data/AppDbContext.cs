@@ -6,6 +6,7 @@ namespace FishPokedex.Data;
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
     public DbSet<Species> Species { get; set; } = null!;
+    public DbSet<Location> Locations { get; set; } = null!;
     public DbSet<Catch> Catches { get; set; } = null!;
     public DbSet<CatchDetail> CatchDetails { get; set; } = null!;
 
@@ -18,6 +19,13 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             .HasOne(c => c.Species)
             .WithMany(s => s.Catches)
             .HasForeignKey(c => c.SpeciesId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // 1:N Relationship: Location -> Catch
+        modelBuilder.Entity<Catch>()
+            .HasOne(c => c.Location)
+            .WithMany(l => l.Catches)
+            .HasForeignKey(c => c.LocationId)
             .OnDelete(DeleteBehavior.Restrict);
 
         // 1:1 Relationship: Catch -> CatchDetail
